@@ -25,7 +25,7 @@ struct LoginFromViewFootterView: View {
         }
             
         .scrollContentBackground(.hidden)
-        .frame(height: 180)
+        .frame(height: 200)
         
         BigButton(title: "Giriş yap") {
             viewmodel.login()

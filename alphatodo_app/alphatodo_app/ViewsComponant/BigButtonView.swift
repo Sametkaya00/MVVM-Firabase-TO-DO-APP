@@ -17,7 +17,7 @@ struct BigButton: View {
             
             ZStack{
               
-                RoundedRectangle(cornerRadius: 0)
+                RoundedRectangle(cornerRadius: 9)
                     .foregroundStyle(.primary)
                 Text(title)
                     .foregroundStyle(.white)

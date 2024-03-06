@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginHeaderView: View {
+    @State private var moveRight = false
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -16,9 +17,19 @@ struct LoginHeaderView: View {
             Image(getLogoName())
                 .resizable()
                 .frame(width: 200, height: 200)
+                .cornerRadius(25)
+                .overlay(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/).stroke(Color.blue, lineWidth: 3))
+                .shadow(color:.blue,radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                .rotationEffect(.degrees(moveRight ? 10 : -10))
+                .onAppear{
+                    withAnimation(Animation.easeInOut(duration: 3.0).repeatForever(autoreverses: true)) {
+                        moveRight.toggle()
+                }
+            }
         }
+       
             
-        .padding(.top,100)
+            .padding(.top,100)
     }
     
     func getLogoName() -> String {
